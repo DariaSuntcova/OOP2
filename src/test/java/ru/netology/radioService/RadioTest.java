@@ -6,10 +6,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class RadioTest {
+    Radio radio = new Radio();
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/RadioStation.csv")
     public void shouldSetRadioStation(int currentRadioStation, int expected) {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStation(currentRadioStation);
 
         int actual = radio.getCurrentRadioStation();
@@ -24,7 +25,7 @@ public class RadioTest {
             "9,0"
     })
     public void shouldNextRadioStation(int currentRadioStation, int expected) {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStation(currentRadioStation);
 
         radio.nextRadioStation();
@@ -42,7 +43,7 @@ public class RadioTest {
             "0,9"
     })
     public void shouldPrevRadioStation(int currentRadioStation, int expected) {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStation(currentRadioStation);
 
         radio.prevRadioStation();
@@ -60,7 +61,7 @@ public class RadioTest {
 
     })
     public void shouldIncreaseVolume(int currentVolume, int expected) {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(currentVolume);
 
         radio.increaseVolume();
@@ -78,7 +79,7 @@ public class RadioTest {
 
     })
     public void shouldReduceVolume(int currentVolume, int expected) {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(currentVolume);
 
         radio.reduceVolume();
