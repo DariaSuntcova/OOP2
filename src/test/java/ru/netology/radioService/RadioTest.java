@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class RadioTest {
     Radio radio = new Radio();
+
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/RadioStation.csv")
     public void shouldSetRadioStation(int currentRadioStation, int expected) {
@@ -14,6 +15,17 @@ public class RadioTest {
         radio.setCurrentRadioStation(currentRadioStation);
 
         int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/Volume.csv")
+    public void shouldSetVolume(int currentVolume, int expected) {
+
+        radio.setCurrentVolume(currentVolume);
+
+        int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
